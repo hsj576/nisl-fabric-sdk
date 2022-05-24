@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="hsj@10.176.24.25:22" type="ssh/sftp" uuid="cf50688e-9bc2-4c0c-99f1-7970992f467a">
+        <config>
+          <option name="projectRootOnTarget" value="/home/hsj/fabricdemo-sdk" />
+          <option name="serverName" value="hsj@10.176.24.25:22 password" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="javaVersionString" value="1.8.0_292" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
