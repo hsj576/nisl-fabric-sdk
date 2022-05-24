@@ -1,19 +1,32 @@
-# Smallbank
+# nisl-fabric-sdk
 
-smallbank是H-store中用于测试分布式数据库性能的一个benchmark：https://hstore.cs.brown.edu/documentation/deployment/benchmarks/
-
-该benchmark也经常用于fabric的性能测试中。本项目提供了基于go语言的面向fabric的smallbank链码。
+本项目是一个java语言的fabric客户端sdk，用于发送交易。可以自动生成基于smallbank benchmark的交易，并采用一致性哈希算法将交易分配给各个链码。
 
 ## Quick Start
 
+resources中的organizations需要替换为fabric网络的organizations。
+
+connection.json中fabric网络所在地址需要修改。
+
+fabricdemo.jar是该项目打包的记过，可以直接运行。
+
 ~~~bash
-./network.sh up -s couchdb
-./network.sh createChannel -s couchdb
-
-./network.sh deployCC -ccn smallbank -ccp ../chaincode/smallbank/go/ -ccl go -ccep "OR('Org1MSP.member','Org2MSP.member')" -cccg ../chaincode/smallbank/collections_config.json
-
+java -cp fabricdemo.jar com.rain.fabricdemo.test.App 1 200 10000
 ~~~
+
+第一个参数代表分片数量，第二个参数代表发送线程数量，第三个参数代表发送交易数量。
+
+## Architecture
+
+架构如图：
+
+![architecture](architecture.png)
 
 ## Other
 
-一个调用该链码的sdk实例：https://github.com/hsj576/nisl-fabric-sdk
+smallbank-benchmark来源：https://github.com/hsj576/smallbank-benchmark
+
+支持分片的fabric来源：https://github.com/hsj576/nisl-fabric/tree/sharding
+
+
+
